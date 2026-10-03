@@ -1,0 +1,282 @@
+/* ==========================================================
+   SEJARAH — scrollytelling dengan panggung lengket
+   Semua kelas berawalan .sj-
+   ========================================================== */
+
+.sj {
+  --sj-top: 5.5rem;              /* diisi JS = tinggi header */
+  --sj-bar: 56px;                /* diisi JS = tinggi bar chip */
+  --tone: 45, 212, 191;          /* diganti JS sesuai era aktif */
+  --tone-l: 13, 148, 136;
+  position: relative;
+  max-width: 72rem;
+  margin-inline: auto;
+}
+/* --t = warna aktif: terang di mode gelap, lebih pekat di mode terang */
+html.dark .sj, html.dark .sj-scene, html.dark .sj-card, html.dark .sj-chip { --t: var(--tone); }
+html:not(.dark) .sj, html:not(.dark) .sj-scene, html:not(.dark) .sj-card, html:not(.dark) .sj-chip { --t: var(--tone-l); }
+
+/* ---------- Bar chip era + progres ---------- */
+.sj-bar {
+  position: sticky;
+  top: var(--sj-top);
+  z-index: 20;
+  margin-bottom: 1rem;
+  padding: .55rem .6rem .75rem;
+  border-radius: 1.1rem;
+  overflow: hidden;
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+html.dark .sj-bar { background: rgba(13, 19, 34, .85); border: 1px solid rgba(255, 255, 255, .08); }
+html:not(.dark) .sj-bar { background: rgba(255, 255, 255, .9); border: 1px solid rgba(15, 23, 42, .08); }
+
+.sj-chips {
+  position: relative;
+  display: flex;
+  gap: .4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.sj-chips::-webkit-scrollbar { display: none; }
+.sj-chips::before, .sj-chips::after { content: ''; margin: auto; }   /* rata tengah, tetap bisa digeser di HP */
+
+.sj-chip {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem .85rem;
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  font: inherit;
+  font-size: .78rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .3s, color .3s, border-color .3s, box-shadow .3s;
+  -webkit-tap-highlight-color: transparent;
+}
+html.dark .sj-chip { background: rgba(255, 255, 255, .05); color: #cbd5e1; }
+html:not(.dark) .sj-chip { background: rgba(15, 23, 42, .05); color: #475569; }
+.sj-chip i { font-size: .72rem; opacity: .75; }
+.sj-chip:hover { border-color: rgba(var(--t), .6); }
+.sj-chip.is-past { color: rgb(var(--t)) !important; }
+.sj-chip.is-active { background: rgb(var(--t)); color: #fff !important; box-shadow: 0 8px 20px -8px rgba(var(--t), .8); }
+html.dark .sj-chip.is-active { color: #04121a !important; }
+.sj-chip:focus-visible { outline: 2px solid #2dd4bf; outline-offset: 2px; }
+
+.sj-prog { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: rgba(148, 163, 184, .22); }
+.sj-prog i {
+  display: block;
+  height: 100%;
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, rgba(var(--t), .55), rgb(var(--t)));
+  transition: transform .25s linear;
+}
+
+/* ---------- Tata letak (HP: panggung di atas, teks di bawah) ---------- */
+.sj-stage {
+  position: sticky;
+  top: calc(var(--sj-top) + var(--sj-bar) + .5rem);
+  z-index: 10;
+  height: clamp(180px, 32vh, 300px);
+  margin-bottom: .5rem;
+  border-radius: 1.4rem;
+  overflow: hidden;
+  border: 1px solid rgba(var(--t), .35);
+  box-shadow: 0 24px 60px -30px rgba(var(--t), .55);
+  transition: border-color .8s, box-shadow .8s;
+}
+html.dark .sj-stage { background: #0a1020; }
+html:not(.dark) .sj-stage { background: #f8fafc; }
+
+@media (min-width: 900px) {
+  .sj-layout { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 2.25rem; align-items: start; }
+  .sj-stage {
+    height: min(calc(100vh - var(--sj-top) - var(--sj-bar) - 2.5rem), 600px);
+    min-height: 340px;
+    margin: 0;
+  }
+}
+
+/* ---------- Panggung: satu adegan per era, saling cross-fade ---------- */
+.sj-scene {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  opacity: 0;
+  transform: scale(.93);
+  transition: opacity .8s ease, transform .9s cubic-bezier(.2, .8, .2, 1);
+  pointer-events: none;
+}
+.sj-scene.is-on { opacity: 1; transform: none; }
+.sj-scene:not(.is-on) * { animation-play-state: paused !important; }
+
+.sj-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 46%, rgba(var(--t), .38), rgba(var(--t), .08) 45%, transparent 70%);
+}
+.sj-orbit {
+  position: absolute;
+  height: 90%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1.5px dashed rgba(var(--t), .32);
+  animation: sjSpin 45s linear infinite;
+}
+.sj-orbit2 { height: 66%; border-style: dotted; animation-direction: reverse; animation-duration: 30s; }
+@keyframes sjSpin { to { transform: rotate(360deg); } }
+
+.sj-hero { position: relative; height: 76%; aspect-ratio: 1; animation: sjFloat 6s ease-in-out infinite; }
+@keyframes sjFloat { 50% { transform: translateY(-6px); } }
+.sj-hero svg { display: block; width: 100%; height: 100%; overflow: visible; filter: drop-shadow(0 10px 28px rgba(var(--t), .4)); }
+
+.sj-hero .art-line { fill: none; stroke: rgb(var(--t)); stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.sj-hero .art-thin { stroke-width: 1; opacity: .75; }
+.sj-hero .art-shape { fill: rgba(var(--t), .14); }
+.sj-hero .art-acc { fill: rgb(var(--t)); stroke: none; }
+
+/* Animasi kecil per ilustrasi */
+.art-spray circle { animation: sjSpray 2.2s ease-out infinite; }
+.art-spray circle:nth-child(2) { animation-delay: .3s; }
+.art-spray circle:nth-child(3) { animation-delay: .6s; }
+.art-spray circle:nth-child(4) { animation-delay: .9s; }
+@keyframes sjSpray { 0% { opacity: 0; transform: translate(-8px, 0); } 25% { opacity: 1; } 100% { opacity: 0; transform: translate(9px, 3px); } }
+
+.art-signal path { opacity: .2; animation: sjSig 2s ease-in-out infinite; }
+.art-signal path:nth-child(2) { animation-delay: .25s; }
+.art-signal path:nth-child(3) { animation-delay: .5s; }
+@keyframes sjSig { 50% { opacity: 1; } }
+
+.art-open { transform-box: fill-box; transform-origin: center; animation: sjOpen 3.4s ease-in-out infinite alternate; }
+@keyframes sjOpen { from { transform: scale(.42); } to { transform: scale(1); } }
+
+.art-cells circle { animation: sjCell 3s ease-in infinite; }
+.art-cells circle:nth-child(2) { animation-delay: .7s; }
+.art-cells circle:nth-child(3) { animation-delay: 1.4s; }
+.art-cells circle:nth-child(4) { animation-delay: 2.1s; }
+@keyframes sjCell { 0% { opacity: .9; transform: none; } 100% { opacity: 0; transform: translate(-10px, -10px); } }
+
+.sj-count {
+  position: absolute;
+  right: .9rem;
+  bottom: .7rem;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  color: rgb(var(--t));
+}
+
+/* ---------- Kartu teks ---------- */
+.sj-card {
+  min-height: 62vh;
+  display: flex;
+  align-items: center;
+  padding-block: 1rem;
+  opacity: .38;
+  transform: scale(.975);
+  filter: saturate(.5);
+  cursor: pointer;
+  transition: opacity .5s, transform .5s, filter .5s;
+}
+.sj-card.is-active { opacity: 1; transform: none; filter: none; cursor: auto; }
+@media (min-width: 900px) { .sj-card { min-height: 78vh; } }
+
+.sj-card-in {
+  width: 100%;
+  padding: 1.4rem;
+  border-radius: 1.5rem;
+  border: 1px solid rgba(var(--t), .2);
+  transition: border-color .5s, box-shadow .5s;
+}
+html.dark .sj-card-in { background: rgba(13, 19, 34, .92); color: #e2e8f0; }
+html:not(.dark) .sj-card-in { background: rgba(255, 255, 255, .96); color: #1e293b; }
+.sj-card.is-active .sj-card-in { border-color: rgba(var(--t), .6); box-shadow: 0 26px 60px -26px rgba(var(--t), .55); }
+
+.sj-year {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .6rem;
+  font-size: clamp(1.9rem, 4.4vw, 3rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -.02em;
+  color: rgb(var(--t));
+}
+.sj-year > i { font-size: .55em; }
+.sj-now {
+  font-style: normal;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+  padding: .25rem .6rem;
+  border-radius: 9999px;
+  background: rgb(var(--t));
+  color: #fff;
+}
+html.dark .sj-now { color: #04121a; }
+
+.sj-title { margin-top: .65rem; font-size: 1.3rem; font-weight: 800; line-height: 1.25; }
+.sj-desc { margin-top: .5rem; font-size: .9rem; line-height: 1.65; opacity: .8; }
+
+.sj-impact {
+  display: flex;
+  gap: .75rem;
+  margin-top: 1rem;
+  padding: .8rem .9rem;
+  border-radius: 1rem;
+  background: rgba(var(--t), .08);
+  border: 1px solid rgba(var(--t), .2);
+}
+.sj-impact > i { margin-top: .15rem; color: rgb(var(--t)); }
+.sj-impact b { display: block; font-size: .66rem; letter-spacing: .1em; text-transform: uppercase; color: rgb(var(--t)); }
+.sj-impact p { margin: .2rem 0 0; font-size: .86rem; line-height: 1.5; font-weight: 600; }
+
+.sj-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.sj-actions:empty { display: none; }
+.sj-fact-btn, .sj-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .5rem .95rem;
+  border-radius: 9999px;
+  font: inherit;
+  font-size: .76rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .2s, background .2s, filter .2s;
+}
+.sj-fact-btn { color: rgb(var(--t)); background: rgba(var(--t), .1); border: 1px solid rgba(var(--t), .3); }
+.sj-fact-btn:hover { background: rgba(var(--t), .2); }
+.sj-fact-btn[aria-expanded="true"] i { color: #facc15; }
+.sj-cta { color: #fff; background: rgb(var(--t)); border: 1px solid transparent; }
+html.dark .sj-cta { color: #04121a; }
+.sj-cta:hover { transform: translateY(-2px); filter: brightness(1.08); }
+.sj-cta i { transition: transform .2s; }
+.sj-cta:hover i { transform: translateX(3px); }
+.sj-fact-btn:focus-visible, .sj-cta:focus-visible { outline: 2px solid #2dd4bf; outline-offset: 2px; }
+
+.sj-fact-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .4s cubic-bezier(.4, 0, .2, 1); }
+.sj-fact-body.is-open { grid-template-rows: 1fr; }
+.sj-fact-body > div { overflow: hidden; }
+.sj-fact-body p {
+  margin: .7rem 0 0;
+  padding: .75rem .9rem;
+  font-size: .84rem;
+  line-height: 1.6;
+  border-left: 3px solid rgb(var(--t));
+  border-radius: .2rem .8rem .8rem .2rem;
+  background: rgba(250, 204, 21, .09);
+}
+
+/* ---------- Kurangi gerakan: ilustrasi ganti tanpa animasi ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .sj-scene, .sj-card, .sj-card-in, .sj-stage, .sj-chip, .sj-prog i, .sj-fact-body { transition: none !important; }
+  .sj-hero, .sj-orbit, .art-spray circle, .art-signal path, .art-open, .art-cells circle { animation: none !important; }
+  .art-spray circle, .art-cells circle { opacity: .9; }
+  .art-signal path { opacity: .8; }
+}

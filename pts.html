@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+
+<html lang="id" class="scroll-smooth" id="htmlRoot">
+
+  <head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBAT ANTI-ASMA — Infografis & Farmakoterapi Modern</title>
+  
+    <!-- Muat CDN Tailwind -->
+
+  <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- atur konfigurasi -->
+
+  <script>
+    tailwind.config = {
+    darkMode: 'class'
+  }
+  </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="team-ring.css">
+    <link rel="stylesheet" href="sejarah.css">
+    <link rel="stylesheet" href="kuis.css">
+    <link rel="stylesheet" href="video.css">
+    <style>
+
+      /* Normalisasi kartu gejala: ukuran, padding, dan alignment dibuat seragam */
+
+      .symptom-card {
+        box-sizing: border-box;
+        min-height: 136px;
+        align-items: flex-start;
+      }
+
+      /* Aturan khusus mode gelap untuk kartu gejala */
+
+      .dark .symptom-card {
+       background-color: #1e293b !important; /* Warna abu-abu gelap */
+       color: #f8fafc !important;            /* Warna teks terang */
+       border-color: #334155 !important;
+      }
+
+      .symptom-card > div:last-child {
+        min-width: 0;
+      }
+
+      .symptom-card h4 {
+        line-height: 1.35;
+      }
+
+      .symptom-card p {
+        margin: 0;
+      }
+
+      /* Perbaikan agar section sejarah tidak menghasilkan teks tag HTML di layar */
+
+      #sejarah {
+        display: block;
+      }
+    
+      #sejarah .relative {
+        box-sizing: border-box;
+      }
+
+      #kontak .text-center {
+        text-align: center;
+      }
+
+      @media (min-width: 768px) {
+        #kontak .grid {
+          align-items: start;
+        }
+      }
+
+    </style>
+    <script src="script.js" defer></script>
+    <script src="team-ring.js" defer></script>
+    <script src="sejarah.js" defer></script>
+    <script src="kuis.js" defer></script>
+    <script src="video.js" defer></script>
+
+
+  </head>
+
+  <body class="min-h-screen flex flex-col justify-between selection:bg-teal-500 selection:text-white bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300">
+
+    <div class="bg-aurora" aria-hidden="true">
+  <span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span>
+</div>
+
+    
+
+  <header class="w-full fixed top-0 left-0 right-0 z-50 glass-card px-4 sm:px-8 py-4 transition-all duration-300 bg-white/90 text-slate-800 dark:bg-slate-900/90 dark:text-slate-100 border-b border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-2xl bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white shadow-lg shadow-teal-500/20">
+          <i class="fa-solid fa-lungs text-lg"></i>
+        </div>
+        <div>
+          <h1 class="font-extrabold text-xs tracking-widest uppercase">FARMASI KLINIK & RPL</h1>
+          <p class="text-xs text-teal-500 font-medium">Edukasi Farmakoterapi Pernapasan</p>
+        </div>
+      </div>
+      
+      <!-- Desktop Navigasi -->
+
+      <div class="nav-scroll hidden xl:block" id="navScroll">
+        <nav class="nav-track text-xs font-semibold" aria-label="Navigasi utama">
+          <a href="#materi" data-nav="materi" class="nav-link hover:text-teal-500 transition">Materi</a>
+          <a href="#sejarah" data-nav="sejarah" class="nav-link hover:text-teal-500 transition">Sejarah</a>
+          <a href="#klasifikasi" data-nav="klasifikasi" class="nav-link hover:text-teal-500 transition">Klasifikasi Obat</a>
+          <a href="#informasi-obat" data-nav="informasi-obat" class="nav-link hover:text-teal-500 transition">Aturan Pakai & Efek Samping</a>
+          <a href="#edukasi-gaya-hidup" data-nav="edukasi-gaya-hidup" class="nav-link hover:text-teal-500 transition">Pola Hidup Sehat</a>
+          <a href="#strategi-pemasaran" data-nav="strategi-pemasaran" class="nav-link hover:text-teal-500 transition">Strategi Pemasaran</a>
+          <a href="#inhaler" data-nav="inhaler" class="nav-link hover:text-teal-500 transition">Panduan Inhaler</a>
+          <a href="#video-edukasi" data-nav="video-edukasi" class="nav-link hover:text-teal-500 transition">Video Edukasi</a>
+          <a href="#kuis" data-nav="kuis" class="nav-link hover:text-teal-500 transition">Kuis Interaktif</a>
+          <a href="#tim" data-nav="tim" class="nav-link hover:text-teal-500 transition">Tim Penyusun</a>
+          <a href="#kontak" data-nav="kontak" class="nav-link hover:text-teal-500 transition">Kontak</a>
+        </nav>
+      </div>
+
+      <div class="flex items-center space-x-2">
+
+        <!-- Tombol Ganti Tema -->
+
+        <button onclick="toggleTheme()" id="themeToggleBtn"
+          class="p-2.5 rounded-xl bg-slate-200 dark:bg-slate-900 hover:opacity-80 transition text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-800"
+          title="Ganti mode tampilan" aria-label="Ganti mode tampilan">
+          <i id="themeIcon" class="fa-solid fa-moon"></i>
+        </button>
+
+        <!-- Tombol Fullscreen -->
+
+        <button onclick="toggleFullscreen()" class="hidden sm:flex p-2.5 rounded-xl bg-slate-200 dark:bg-slate-900 hover:opacity-80 transition text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-800" title="Layar Penuh">
+          <i class="fa-solid fa-expand"></i>
+        </button>
+
+        <!-- Tombol Mobile Hamburger Menu -->
+
+        <button onclick="toggleMobileMenu()" class="xl:hidden p-2.5 rounded-xl bg-slate-200 dark:bg-slate-900 hover:opacity-80 transition text-slate-700 dark:text-slate-300 border border-slate-300 dark:border-slate-800" title="Menu Navigasi">
+          <i id="mobileMenuIcon" class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Dropdown Menu Mobile (Smooth Slide Down) -->
+
+    <div id="mobileMenu" class="hidden xl:hidden max-h-[75vh] overflow-y-auto pt-4 pb-2 border-t border-slate-700/30 mt-4 space-y-2 text-sm font-semibold opacity-0 scale-95 transition-all duration-300">
+      <a href="#materi" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-book-open mr-2 text-teal-500"></i> Materi</a>
+      <a href="#sejarah" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-clock-rotate-left mr-2 text-teal-500"></i> Sejarah Asma</a>
+      <a href="#klasifikasi" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-pills mr-2 text-teal-500"></i> Klasifikasi Obat</a>
+      <a href="#informasi-obat" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-file-medical mr-2 text-teal-500"></i> Aturan Pakai & Efek Samping</a>
+      <a href="#edukasi-gaya-hidup" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-leaf mr-2 text-teal-500"></i> Pola Hidup Sehat</a>
+      <a href="#strategi-pemasaran" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-chart-line mr-2 text-teal-500"></i> Strategi Pemasaran</a>
+      <a href="#inhaler" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-wind mr-2 text-teal-500"></i> Panduan Inhaler</a>
+      <a href="#video-edukasi" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-circle-play mr-2 text-teal-500"></i> Video Edukasi</a>
+      <a href="#kuis" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-clipboard-question mr-2 text-teal-500"></i> Kuis Interaktif</a>
+      <a href="#tim" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-users mr-2 text-teal-500"></i> Tim Penyusun</a>
+      <a href="#kontak" onclick="toggleMobileMenu()" class="block px-3 py-2 rounded-xl hover:bg-teal-500/10 hover:text-teal-500 transition"><i class="fa-solid fa-address-book mr-2 text-teal-500"></i> Kontak</a>
+    </div>
+  </header>
+
+  <main class="w-full flex-1 pt-28 pb-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-16 sm:space-y-24 hero-gradient">
+
+    <!-- Hero Section -->
+
+    <section class="reveal relative rounded-3xl glass-card p-6 sm:p-12 md:p-16 overflow-hidden flex flex-col md:flex-row items-center shadow-xl">
+
+   <i class="fa-solid fa-pills absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+      <div class="absolute -top-40 -right-40 w-96 h-96 bg-teal-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="relative z-10 max-w-2xl space-y-6">
+        <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+          <i class="fa-solid fa-graduation-cap"></i>
+          <span>Materi Sekolah & Farmakoterapi</span>
+        </div>
+        
+        <h2 class="text-4xl sm:text-6xl font-black tracking-tight leading-tight text-slate-900 dark:text-white">
+          OBAT
+<span class="typewriter" data-text="ANTI-ASMA">
+  <span class="sr-only">ANTI-ASMA</span>
+  <span class="tw-ghost" aria-hidden="true">ANTI-ASMA</span>
+  <span class="tw-live" aria-hidden="true"><span class="tw-text"></span><span class="tw-caret"></span></span>
+  <svg class="title-wave" viewBox="0 0 300 14" preserveAspectRatio="none" aria-hidden="true">
+    <path pathLength="1" d="M2,7 C27,-1 52,15 77,7 S127,-1 152,7 S202,15 227,7 S277,-1 298,7"/>
+  </svg>
+</span>
+        </h2>
+        
+        <p class="text-lg sm:text-2xl text-teal-600 dark:text-teal-300 font-bold tracking-wide">
+          Kenali &bull; Kendalikan &bull; Cegah Kekambuhan
+        </p>
+        
+        <p class="opacity-80 text-sm sm:text-base leading-relaxed">
+          Panduan komprehensif klinis dan farmakologis gangguan saluran pernapasan kronis untuk mahasiswa kesehatan, perawat, dan tenaga medis profesional.
+        </p>
+
+        <div class="pt-2 flex flex-wrap gap-4">
+          <a href="#klasifikasi" class="px-6 py-3 rounded-2xl bg-teal-600 hover:bg-teal-500 text-white font-bold text-sm transition shadow-lg shadow-teal-600/30 flex items-center gap-2">
+            <i class="fa-solid fa-pills"></i> Jelajahi Obat
+          </a>
+          <a href="#inhaler" class="px-6 py-3 rounded-2xl glass-card hover:border-teal-500 font-bold text-sm transition flex items-center gap-2">
+            <i class="fa-solid fa-wind text-teal-500"></i> Cara Pakai Inhaler
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== Ilustrasi paru-paru interaktif (ganti kartu "Target Saluran Napas" di hero) ===== -->
+<div class="relative z-10 flex flex-col items-center justify-center glass-card p-6 rounded-3xl shadow-2xl text-center w-full md:w-auto">
+  <div class="lung-wrap w-full max-w-[320px]" id="lungWrap" data-state="normal">
+
+    <svg viewBox="0 0 400 420" class="lung-svg" role="img"
+         aria-label="Ilustrasi paru-paru yang bernapas. Tombol di bawah mengubahnya antara napas normal dan serangan asma.">
+      <defs>
+        <linearGradient id="lungFill" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" class="stop-a"/>
+          <stop offset="1" class="stop-b"/>
+        </linearGradient>
+        <radialGradient id="lungGlow" cx=".5" cy=".5" r=".5">
+          <stop offset="0" stop-color="#14b8a6" stop-opacity=".22"/>
+          <stop offset="1" stop-color="#14b8a6" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <circle cx="200" cy="230" r="175" fill="url(#lungGlow)"/>
+
+      <!-- Label -->
+      <g class="lung-label" aria-hidden="true">
+        <line x1="72" y1="48" x2="190" y2="48"/><circle cx="192" cy="48" r="2.5"/>
+        <text x="20" y="52">Trakea</text>
+        <line x1="332" y1="118" x2="262" y2="190"/><circle cx="260" cy="192" r="2.5"/>
+        <text x="392" y="112" text-anchor="end">Bronkus</text>
+        <line x1="44" y1="392" x2="80" y2="326"/><circle cx="81" cy="323" r="2.5"/>
+        <text x="8" y="408">Alveoli</text>
+      </g>
+
+      <!-- Trakea (diam) -->
+      <g class="trachea">
+        <rect x="192" y="26" width="16" height="118" rx="8"/>
+        <g class="rings"><line x1="193" y1="38" x2="207" y2="38"/><line x1="193" y1="49" x2="207" y2="49"/><line x1="193" y1="60" x2="207" y2="60"/><line x1="193" y1="71" x2="207" y2="71"/><line x1="193" y1="82" x2="207" y2="82"/><line x1="193" y1="93" x2="207" y2="93"/><line x1="193" y1="104" x2="207" y2="104"/><line x1="193" y1="115" x2="207" y2="115"/><line x1="193" y1="126" x2="207" y2="126"/><line x1="193" y1="137" x2="207" y2="137"/></g>
+      </g>
+
+      <!-- Bagian yang mengembang saat bernapas -->
+      <g class="lung-breathe">
+        <path class="lung-body" d="M180,108 C150,92 100,108 75,170 C50,235 45,310 70,350 C85,372 130,376 165,363 C182,356 186,335 186,310 L186,140 C186,125 184,115 180,108 Z"/>
+        <path class="lung-body" d="M220,108 C250,92 300,108 325,170 C350,235 355,310 330,350 C315,372 270,376 235,363 C218,356 214,335 214,310 L214,140 C214,125 216,115 220,108 Z"/>
+        <path class="lung-fissure" d="M186,238 C150,236 105,250 62,302"/>
+        <path class="lung-fissure" d="M214,238 C250,236 295,250 338,302"/>
+
+        <path class="bronchus" style="--w:9;--i:0" pathLength="1" d="M200,140 C192,165 172,180 150,196"/>
+        <path class="bronchus" style="--w:6;--i:1" pathLength="1" d="M150,196 C128,204 108,222 96,250"/>
+        <path class="bronchus" style="--w:6;--i:1" pathLength="1" d="M150,196 C146,225 142,250 136,282"/>
+        <path class="bronchus" style="--w:5;--i:2" pathLength="1" d="M166,184 C166,215 166,240 160,264"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M96,250 C86,268 82,290 84,315"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M96,250 C110,262 118,282 120,306"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M136,282 C128,298 122,318 124,340"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M160,264 C158,290 150,315 146,340"/>
+        <path class="bronchus" style="--w:9;--i:0" pathLength="1" d="M200,140 C208,165 228,180 250,196"/>
+        <path class="bronchus" style="--w:6;--i:1" pathLength="1" d="M250,196 C272,204 292,222 304,250"/>
+        <path class="bronchus" style="--w:6;--i:1" pathLength="1" d="M250,196 C254,225 258,250 264,282"/>
+        <path class="bronchus" style="--w:5;--i:2" pathLength="1" d="M234,184 C234,215 234,240 240,264"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M304,250 C314,268 318,290 316,315"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M304,250 C290,262 282,282 280,306"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M264,282 C272,298 278,318 276,340"/>
+        <path class="bronchus" style="--w:4;--i:3" pathLength="1" d="M240,264 C242,290 250,315 254,340"/>
+
+        <g class="alveoli" style="--i:0"><circle cx="84" cy="315" r="5.5"/><circle cx="77" cy="311" r="4.5"/><circle cx="91" cy="311" r="4.5"/><circle cx="79" cy="321" r="4"/><circle cx="90" cy="321" r="4"/></g>
+        <g class="alveoli" style="--i:1"><circle cx="120" cy="306" r="5.5"/><circle cx="113" cy="302" r="4.5"/><circle cx="127" cy="302" r="4.5"/><circle cx="115" cy="312" r="4"/><circle cx="126" cy="312" r="4"/></g>
+        <g class="alveoli" style="--i:2"><circle cx="124" cy="340" r="5.5"/><circle cx="117" cy="336" r="4.5"/><circle cx="131" cy="336" r="4.5"/><circle cx="119" cy="346" r="4"/><circle cx="130" cy="346" r="4"/></g>
+        <g class="alveoli" style="--i:3"><circle cx="146" cy="340" r="5.5"/><circle cx="139" cy="336" r="4.5"/><circle cx="153" cy="336" r="4.5"/><circle cx="141" cy="346" r="4"/><circle cx="152" cy="346" r="4"/></g>
+        <g class="alveoli" style="--i:4"><circle cx="316" cy="315" r="5.5"/><circle cx="309" cy="311" r="4.5"/><circle cx="323" cy="311" r="4.5"/><circle cx="311" cy="321" r="4"/><circle cx="322" cy="321" r="4"/></g>
+        <g class="alveoli" style="--i:5"><circle cx="280" cy="306" r="5.5"/><circle cx="273" cy="302" r="4.5"/><circle cx="287" cy="302" r="4.5"/><circle cx="275" cy="312" r="4"/><circle cx="286" cy="312" r="4"/></g>
+        <g class="alveoli" style="--i:6"><circle cx="276" cy="340" r="5.5"/><circle cx="269" cy="336" r="4.5"/><circle cx="283" cy="336" r="4.5"/><circle cx="271" cy="346" r="4"/><circle cx="282" cy="346" r="4"/></g>
+        <g class="alveoli" style="--i:7"><circle cx="254" cy="340" r="5.5"/><circle cx="247" cy="336" r="4.5"/><circle cx="261" cy="336" r="4.5"/><circle cx="249" cy="346" r="4"/><circle cx="260" cy="346" r="4"/></g>
+
+        <g class="mucus">
+        <circle cx="119" cy="216" r="3.2"/>
+        <circle cx="144" cy="238" r="3.2"/>
+        <circle cx="165" cy="227" r="3.2"/>
+        <circle cx="281" cy="216" r="3.2"/>
+        <circle cx="256" cy="238" r="3.2"/>
+        <circle cx="235" cy="227" r="3.2"/>
+        </g>
+      </g>
+
+      <!-- Partikel udara -->
+      <g class="air">
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="0.0s" repeatCount="indefinite" path="M200,28 L200,140 C192,165 172,180 150,196 C128,204 108,222 96,250 C86,268 82,290 84,315"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="0.0s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="1.7s" repeatCount="indefinite" path="M200,28 L200,140 C192,165 172,180 150,196 C128,204 108,222 96,250 C86,268 82,290 84,315"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="1.7s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="0.6s" repeatCount="indefinite" path="M200,28 L200,140 C192,165 172,180 150,196 C146,225 142,250 136,282 C128,298 122,318 124,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="0.6s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="2.3s" repeatCount="indefinite" path="M200,28 L200,140 C192,165 172,180 150,196 C146,225 142,250 136,282 C128,298 122,318 124,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="2.3s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="1.2s" repeatCount="indefinite" path="M200,28 L200,140 C192,165 172,180 166,184 C166,215 166,240 160,264 C158,290 150,315 146,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="1.2s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="2.9s" repeatCount="indefinite" path="M200,28 L200,140 C192,165 172,180 166,184 C166,215 166,240 160,264 C158,290 150,315 146,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="2.9s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="1.8s" repeatCount="indefinite" path="M200,28 L200,140 C208,165 228,180 250,196 C272,204 292,222 304,250 C314,268 318,290 316,315"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="1.8s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="3.5s" repeatCount="indefinite" path="M200,28 L200,140 C208,165 228,180 250,196 C272,204 292,222 304,250 C314,268 318,290 316,315"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="3.5s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="2.4s" repeatCount="indefinite" path="M200,28 L200,140 C208,165 228,180 250,196 C254,225 258,250 264,282 C272,298 278,318 276,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="2.4s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="4.1s" repeatCount="indefinite" path="M200,28 L200,140 C208,165 228,180 250,196 C254,225 258,250 264,282 C272,298 278,318 276,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="4.1s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="3.0s" repeatCount="indefinite" path="M200,28 L200,140 C208,165 228,180 234,184 C234,215 234,240 240,264 C242,290 250,315 254,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="3.0s" repeatCount="indefinite"/></circle>
+        <circle r="2.6" opacity="0"><animateMotion dur="3.4s" begin="4.7s" repeatCount="indefinite" path="M200,28 L200,140 C208,165 228,180 234,184 C234,215 234,240 240,264 C242,290 250,315 254,340"/><animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.08;.85;1" dur="3.4s" begin="4.7s" repeatCount="indefinite"/></circle>
+      </g>
+
+      <!-- Efek saat reliever diberikan -->
+      <circle class="burst" cx="200" cy="150" r="20"/>
+    </svg>
+
+    <span class="text-xs opacity-70 font-bold tracking-wider block mt-2">Target saluran napas</span>
+    <span class="text-sm font-extrabold flex items-center justify-center gap-2">
+      <i class="fa-solid fa-prescription-bottle-medical text-cyan-500"></i> Bronkus &amp; alveoli
+    </span>
+
+    <div class="lung-seg" role="group" aria-label="Kondisi saluran napas">
+      <button type="button" class="active" data-lung="normal" aria-pressed="true">Napas normal</button>
+      <button type="button" data-lung="asthma" aria-pressed="false">Serangan asma</button>
+    </div>
+
+    <p class="lung-status" id="lungStatus" aria-live="polite">Bronkus terbuka, udara mengalir lancar sampai ke alveoli.</p>
+
+    <button type="button" class="lung-reliever" id="lungReliever" hidden>
+      <i class="fa-solid fa-bolt"></i> Beri reliever (SABA)
+    </button>
+  </div>
+</div>
+      
+    </section>
+
+    <div class="wave-divider wave-anim" aria-hidden="true">
+  <svg viewBox="0 0 2880 80" preserveAspectRatio="none">
+    <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 C1680,80 1920,0 2160,40 C2400,80 2640,0 2880,40 L2880,80 L0,80 Z"/>
+  </svg>
+</div>
+
+    <section id="materi" class="reveal grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-6 scroll-mt-28">
+
+   <i class="fa-solid fa-lungs absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+      <div class="lg:col-span-5 space-y-6">
+        <div class="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-500 text-xs font-semibold tracking-widest uppercase">
+          <i class="fa-solid fa-circle-info"></i>
+          <span>Definisi & Patofisiologi</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Apa itu Asma?
+        </h3>
+        <p class="opacity-90 text-base sm:text-lg leading-relaxed">
+          Asma adalah <strong class="text-teal-500 font-semibold">penyakit pernapasan kronis</strong> yang ditandai oleh peradangan kronis dan penyempitan saluran napas (bronkospasme).
+        </p>
+        <div class="glass-card p-4 rounded-2xl flex items-center space-x-4">
+          <div class="w-12 h-12 rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-500 text-xl flex-shrink-0">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+          </div>
+          <div>
+            <h4 class="font-bold text-sm">Hipereaktivitas Bronkus</h4>
+            <p class="text-xs opacity-70">Saluran napas bereaksi berlebihan terhadap alergen, udara dingin, atau aktivitas fisik.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-4">
+        <div class="flex items-center justify-between mb-2">
+          <span class="text-xs font-bold tracking-widest opacity-70 uppercase flex items-center gap-2">
+            <i class="fa-solid fa-stethoscope text-teal-500"></i> Manifestasi Gejala Klinis Utama
+          </span>
+          <span class="text-xs text-teal-500 font-semibold bg-teal-500/10 px-3 py-1 rounded-full border border-teal-500/20">4 Indikator</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div class="symptom-card card glass-card hover:border-teal-500/50 rounded-2xl p-5 transition hover:scale-[1.02] duration-300 flex items-start space-x-4 h-full min-h-[136px]">
+            <div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-500 text-lg flex-shrink-0">
+              <i class="fa-solid fa-wind"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-base mb-1">Sesak Napas</h4>
+              <p class="text-xs opacity-70 leading-relaxed">Hambatan aliran udara masuk dan keluar paru.</p>
+            </div>
+          </div>
+
+          <div class="symptom-card card glass-card hover:border-cyan-500/50 rounded-2xl p-5 transition hover:scale-[1.02] duration-300 flex items-start space-x-4 h-full min-h-[136px]">
+            <div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 text-lg flex-shrink-0">
+              <i class="fa-solid fa-volume-high"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-base mb-1">Mengi (Bengek)</h4>
+              <p class="text-xs opacity-70 leading-relaxed">Bunyi bersiul khas saat ekspirasi udara.</p>
+            </div>
+          </div>
+
+          <div class="symptom-card card glass-card hover:border-teal-500/50 rounded-2xl p-5 transition hover:scale-[1.02] duration-300 flex items-start space-x-4 h-full min-h-[136px]">
+            <div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-teal-500/10 border border-teal-500/20 flex items-center justify-center text-teal-500 text-lg flex-shrink-0">
+              <i class="fa-solid fa-lungs"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-base mb-1">Batuk</h4>
+              <p class="text-xs opacity-70 leading-relaxed">Refleks iritasi mukosa bronkus persisten.</p>
+            </div>
+          </div>
+
+          <div class="symptom-card card glass-card hover:border-cyan-500/50 rounded-2xl p-5 transition hover:scale-[1.02] duration-300 flex items-start space-x-4 h-full min-h-[136px]">
+            <div class="w-12 h-12 min-w-[48px] min-h-[48px] rounded-xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-500 text-lg flex-shrink-0">
+              <i class="fa-solid fa-weight-scale"></i>
+            </div>
+            <div>
+              <h4 class="font-bold text-base mb-1">Dada Berat</h4>
+              <p class="text-xs opacity-70 leading-relaxed">Sensasi ketat atau tertekan di rongga dada.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section id="sejarah" class="pt-6 scroll-mt-28">
+
+      <div class="reveal text-center max-w-2xl mx-auto space-y-3 mb-8">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+          <i class="fa-solid fa-clock-rotate-left"></i>
+          <span>Perkembangan Terapi</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Sejarah Pengobatan Asma</h3>
+        <p class="opacity-80 text-sm sm:text-base">Perjalanan pengobatan asma dari terapi tradisional hingga pendekatan modern. Gulir untuk menjelajah era demi era.</p>
+      </div>
+
+      <!-- Diisi oleh sejarah.js -->
+      <div class="sj" id="sjRoot">
+        <div class="sj-bar">
+          <nav class="sj-chips" aria-label="Lompat ke era"></nav>
+          <div class="sj-prog" aria-hidden="true"><i></i></div>
+        </div>
+        <div class="sj-layout">
+          <div class="sj-stage" aria-hidden="true"></div>
+          <div class="sj-cards"></div>
+        </div>
+      </div>
+    </section>
+
+  
+
+<section id="klasifikasi" class="reveal space-y-8 pt-6 scroll-mt-28">
+
+   <i class="fa-solid fa-wind absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+          <i class="fa-solid fa-pills"></i>
+          <span>Farmakologi Klinik</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Klasifikasi Golongan Obat Asma
+        </h3>
+        <p class="opacity-80 text-sm sm:text-base">
+          Klik pada kartu golongan obat di bawah untuk melihat informasi mendalam, dosis, dan mekanisme kerjanya.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Reliever Card -->
+        <div onclick="openDrugModal('reliever')" class="card glass-card rounded-3xl p-6 sm:p-8 border-teal-500/30 space-y-4 hover:border-teal-500 hover:scale-[1.01] transition duration-300 cursor-pointer group shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-2xl bg-teal-500/20 text-teal-500 flex items-center justify-center text-xl group-hover:rotate-12 transition">
+                <i class="fa-solid fa-bolt"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold">Reliever (Pereda Cepat)</h4>
+                <span class="text-xs text-teal-500 font-semibold uppercase">Short-Acting Bronchodilator</span>
+              </div>
+            </div>
+            <span class="w-9 h-9 rounded-full bg-teal-500/10 flex items-center justify-center text-teal-500 group-hover:bg-teal-500 group-hover:text-white transition">
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </span>
+          </div>
+          <p class="opacity-85 text-sm leading-relaxed">
+            Digunakan saat serangan akut untuk melebarkan saluran napas secara cepat dengan melemaskan otot polos bronkus.
+          </p>
+          <div class="bg-black/10 dark:bg-slate-900/60 p-4 rounded-2xl border border-black/5 dark:border-slate-800 space-y-2">
+            <span class="text-xs font-bold text-teal-500 uppercase tracking-wider block">Contoh Utama:</span>
+            <ul class="space-y-1.5 text-xs opacity-90">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-teal-500 text-[8px]"></i> <strong>SABA (Salbutamol, Albuterol):</strong> Onset 3-5 menit.</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-teal-500 text-[8px]"></i> <strong>Antikolinergik (Ipratropium Bromide):</strong> Bronkodilator alternatif.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Controller Card -->
+        <div onclick="openDrugModal('controller')" class="card glass-card rounded-3xl p-6 sm:p-8 border-cyan-500/30 space-y-4 hover:border-cyan-500 hover:scale-[1.01] transition duration-300 cursor-pointer group shadow-xl">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+              <div class="w-12 h-12 rounded-2xl bg-cyan-500/20 text-cyan-500 flex items-center justify-center text-xl group-hover:rotate-12 transition">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <div>
+                <h4 class="text-xl font-bold">Controller (Pengontrol)</h4>
+                <span class="text-xs text-cyan-500 font-semibold uppercase">Anti-Inflamasi & LABA</span>
+              </div>
+            </div>
+            <span class="w-9 h-9 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-500 group-hover:bg-cyan-500 group-hover:text-white transition">
+              <i class="fa-solid fa-arrow-right text-xs"></i>
+            </span>
+          </div>
+          <p class="opacity-85 text-sm leading-relaxed">
+            Digunakan secara rutin setiap hari untuk menekan peradangan kronis saluran napas dan mencegah kekambuhan.
+          </p>
+          <div class="bg-black/10 dark:bg-slate-900/60 p-4 rounded-2xl border border-black/5 dark:border-slate-800 space-y-2">
+            <span class="text-xs font-bold text-cyan-500 uppercase tracking-wider block">Contoh Utama:</span>
+            <ul class="space-y-1.5 text-xs opacity-90">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-cyan-500 text-[8px]"></i> <strong>ICS (Budesonide, Fluticasone):</strong> Standar emas anti-inflamasi.</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-circle-dot text-cyan-500 text-[8px]"></i> <strong>LABA (Salmeterol, Formoterol):</strong> Kontrol jangka panjang.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+        <div class="wave-divider wave-anim flip" aria-hidden="true">
+  <svg viewBox="0 0 2880 80" preserveAspectRatio="none">
+    <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 C1680,80 1920,0 2160,40 C2400,80 2640,0 2880,40 L2880,80 L0,80 Z"/>
+  </svg>
+</div>
+
+
+    <section id="informasi-obat" class="reveal space-y-8 pt-12 pb-6 scroll-mt-28">
+
+   <i class="fa-solid fa-heart-pulse absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+  <!-- Header Section -->
+  <div class="text-center max-w-2xl mx-auto space-y-3 px-4">
+    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+      <i class="fa-solid fa-file-medical"></i>
+      <span>Panduan Klinis</span>
+    </div>
+    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white transition-colors duration-300">
+      Aturan Pakai & Efek Samping
+    </h3>
+    <p class="opacity-80 text-sm sm:text-base text-gray-700 dark:text-gray-300 transition-colors duration-300">
+      Informasi penting terkait dosis penggunaan dan potensi efek samping dari golongan obat anti-asma untuk memastikan efektivitas terapi.
+    </p>
+  </div>
+
+  <!-- Grid Card Container -->
+
+  <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 max-w-5xl mx-auto px-4">
+    
+    <!-- CARD 1: Reliever (SABA) -->
+
+    <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col group hover:border-teal-500/40 transition-all duration-300">
+      <!-- Judul Obat -->
+      <div class="flex items-center gap-4 border-b border-black/10 dark:border-white/10 pb-4 transition-colors">
+        <div class="w-14 h-14 rounded-2xl bg-teal-500/10 text-teal-500 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-gray-900 dark:text-white">Pereda Cepat (Reliever)</h4>
+          <span class="text-xs font-bold uppercase tracking-wider text-teal-500">Contoh: Salbutamol</span>
+        </div>
+      </div>
+      
+      <!-- Konten Informasi -->
+      <div class="space-y-5 flex-grow">
+        <!-- Aturan Pakai -->
+        <div>
+          <h5 class="text-sm font-bold flex items-center gap-2 mb-2.5 text-gray-800 dark:text-gray-200">
+            <i class="fa-solid fa-clock text-teal-500"></i> Aturan Pakai
+          </h5>
+          <ul class="text-sm opacity-85 space-y-2 list-none pl-6 relative before:absolute before:left-2 before:top-1 before:bottom-1 before:w-0.5 before:bg-teal-500/20 text-gray-700 dark:text-gray-300">
+            <li class="relative before:absolute before:-left-[21px] before:top-1.5 before:w-2 before:h-2 before:bg-teal-500 before:rounded-full">Digunakan <b>hanya saat terjadi serangan</b> (sesak napas atau mengi).</li>
+            <li class="relative before:absolute before:-left-[21px] before:top-1.5 before:w-2 before:h-2 before:bg-teal-500 before:rounded-full">Dosis umum: 1-2 hisap setiap kali serangan.</li>
+            <li class="relative before:absolute before:-left-[21px] before:top-1.5 before:w-2 before:h-2 before:bg-teal-500 before:rounded-full">Dapat diulang setiap 20 menit (maksimal 3 kali) jika sesak berat.</li>
+          </ul>
+        </div>
+
+        <!-- Efek Samping -->
+        <div>
+          <h5 class="text-sm font-bold flex items-center gap-2 mb-2.5 text-gray-800 dark:text-gray-200">
+            <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> Efek Samping
+          </h5>
+          <ul class="text-sm opacity-85 space-y-2 list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>Jantung berdebar (Takikardia).</li>
+            <li>Tangan gemetar (Tremor halus).</li>
+            <li>Rasa gelisah atau sakit kepala.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Accordion Perhatian Khusus -->
+      <div class="mt-4 pt-4 border-t border-black/10 dark:border-white/10">
+        <button onclick="toggleInfoAccordion('acc-saba')" class="w-full text-left flex justify-between items-center text-sm font-bold text-gray-800 dark:text-gray-200 focus:outline-none group-hover:text-teal-500 transition-colors">
+          <span>Perhatian Khusus</span>
+          <i id="icon-acc-saba" class="fa-solid fa-chevron-down transition-transform duration-300 text-xs"></i>
+        </button>
+        <div id="content-acc-saba" class="max-h-0 overflow-hidden transition-all duration-300">
+          <p class="pt-3 text-xs opacity-80 leading-relaxed text-gray-700 dark:text-gray-300">
+            Hindari penggunaan berlebih. Jika Anda membutuhkan reliever lebih dari 2 hari dalam seminggu, itu tandanya asma Anda tidak terkontrol. Segera konsultasikan ke dokter.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Controller (ICS) -->
+    <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col group hover:border-cyan-500/40 transition-all duration-300">
+      <!-- Judul Obat -->
+      <div class="flex items-center gap-4 border-b border-black/10 dark:border-white/10 pb-4 transition-colors">
+        <div class="w-14 h-14 rounded-2xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-gray-900 dark:text-white">Pengontrol (Controller)</h4>
+          <span class="text-xs font-bold uppercase tracking-wider text-cyan-500">Contoh: Budesonide (ICS)</span>
+        </div>
+      </div>
+      
+      <!-- Konten Informasi -->
+      <div class="space-y-5 flex-grow">
+        <!-- Aturan Pakai -->
+        <div>
+          <h5 class="text-sm font-bold flex items-center gap-2 mb-2.5 text-gray-800 dark:text-gray-200">
+            <i class="fa-solid fa-clock text-cyan-500"></i> Aturan Pakai
+          </h5>
+          <ul class="text-sm opacity-85 space-y-2 list-none pl-6 relative before:absolute before:left-2 before:top-1 before:bottom-1 before:w-0.5 before:bg-cyan-500/20 text-gray-700 dark:text-gray-300">
+            <li class="relative before:absolute before:-left-[21px] before:top-1.5 before:w-2 before:h-2 before:bg-cyan-500 before:rounded-full">Digunakan <b>secara rutin setiap hari</b> untuk mengontrol peradangan saluran napas.</li>
+            <li class="relative before:absolute before:-left-[21px] before:top-1.5 before:w-2 before:h-2 before:bg-cyan-500 before:rounded-full">Dosis umum: 1-2 kali sehari (pagi dan malam).</li>
+            <li class="relative before:absolute before:-left-[21px] before:top-1.5 before:w-2 before:h-2 before:bg-cyan-500 before:rounded-full font-semibold text-cyan-600 dark:text-cyan-400">Wajib berkumur dengan air bersih setelah menghisap obat agar terhindar dari sisa obat di mulut.</li>
+          </ul>
+        </div>
+
+        <!-- Efek Samping -->
+        <div>
+          <h5 class="text-sm font-bold flex items-center gap-2 mb-2.5 text-gray-800 dark:text-gray-200">
+            <i class="fa-solid fa-triangle-exclamation text-rose-500"></i> Efek Samping
+          </h5>
+          <ul class="text-sm opacity-85 space-y-2 list-disc list-inside text-gray-700 dark:text-gray-300">
+            <li>Infeksi jamur pada mulut (Kandidiasis oral).</li>
+            <li>Suara serak atau parau (Disfonia).</li>
+            <li>Batuk ringan atau iritasi tenggorokan.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Accordion Perhatian Khusus -->
+      <div class="mt-4 pt-4 border-t border-black/10 dark:border-white/10">
+        <button onclick="toggleInfoAccordion('acc-ics')" class="w-full text-left flex justify-between items-center text-sm font-bold text-gray-800 dark:text-gray-200 focus:outline-none group-hover:text-cyan-500 transition-colors">
+          <span>Perhatian Khusus</span>
+          <i id="icon-acc-ics" class="fa-solid fa-chevron-down transition-transform duration-300 text-xs"></i>
+        </button>
+        <div id="content-acc-ics" class="max-h-0 overflow-hidden transition-all duration-300">
+          <p class="pt-3 text-xs opacity-80 leading-relaxed text-gray-700 dark:text-gray-300">
+            Obat ini <b>tidak bisa</b> meredakan serangan sesak napas yang terjadi tiba-tiba. Jangan hentikan penggunaan secara sepihak meskipun gejala asma sudah membaik.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION: EDUKASI POLA HIDUP SEHAT
+=========================================== -->
+<section id="edukasi-gaya-hidup" class="reveal space-y-8 pt-12 pb-6 scroll-mt-28">
+
+   <i class="fa-solid fa-pills absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+  <div class="text-center max-w-2xl mx-auto space-y-3 px-4">
+    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-semibold tracking-widest uppercase">
+      <i class="fa-solid fa-leaf"></i>
+      <span>Integrated Prevention</span>
+    </div>
+    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
+      Healthy Lifestyle & Prevention
+    </h3>
+    <p class="opacity-80 text-sm sm:text-base text-slate-700 dark:text-slate-300 transition-colors duration-300">
+      Asthma treatment should be supported with good lifestyle management to prevent optimal recurrence (exacerbation). 
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto px-4">
+    <!-- Card 1: Manajemen Pemicu -->
+    <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col group hover:border-emerald-500/50 transition-all duration-300">
+      <div class="flex items-center gap-4 border-b border-black/10 dark:border-white/10 pb-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
+          <i class="fa-solid fa-ban-smoking"></i>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white">Avoid Triggers</h4>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-500">Primary Prevention</span>
+        </div>
+      </div>
+      <div class="space-y-4 flex-grow opacity-90 text-sm text-slate-700 dark:text-slate-300">
+        <p>The most effective step in asthma therapy is to avoid the triggering factors of the attack:</p>
+        <ul class="space-y-2 list-disc list-inside marker:text-emerald-500">
+          <li><b>Allergens:</b> Dust, pet dander, pollen, and mites.</li>
+          <li><b>Respiratory Irritants:</b> Cigarette smoke, air pollution, and irritating chemicals.</li>
+          <li><b>Environmental Conditions:</b> Very cold air or extreme weather changes.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Card 2: Latihan & Nutrisi -->
+    <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col group hover:border-emerald-500/50 transition-all duration-300">
+      <div class="flex items-center gap-4 border-b border-black/10 dark:border-white/10 pb-4">
+        <div class="w-14 h-14 rounded-2xl bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
+          <i class="fa-solid fa-person-swimming"></i>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white">Physical Activity & Nutrition</h4>
+          <span class="text-xs font-bold uppercase tracking-wider text-emerald-500">Lifestyle</span>
+        </div>
+      </div>
+      <div class="space-y-4 flex-grow opacity-90 text-sm text-slate-700 dark:text-slate-300">
+        <p>Severe sufferers are still recommended to exercise to exercise to exercise the capacity of the lungs:</p>
+        <ul class="space-y-2 list-disc list-inside marker:text-emerald-500">
+          <li><b>Exercise is recommended: </b> Swimming, yoga, or breathing gymnastics <li>(lower Asthma’s exercise-Induced risk).</i></li>
+          <li><b>Nutrition:</b> Multiply foods high in antioxidants (fruit & vegetables) and omega-3 to reduce inflammation.</li>
+          <li><b>Important:</b> Always use the <i>reliever</i> medication 15 minutes before intense exercise if recommended by your doctor.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==========================================
+     SECTION: STRATEGI PEMASARAN OBAT ASMA
+=========================================== -->
+<section id="strategi-pemasaran" class="reveal space-y-8 pt-6 pb-12 scroll-mt-28">
+
+   <i class="fa-solid fa-lungs absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+  <div class="text-center max-w-2xl mx-auto space-y-3 px-4">
+    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-600 dark:text-indigo-400 text-xs font-semibold tracking-widest uppercase">
+      <i class="fa-solid fa-chart-line"></i>
+      <span>Perspektif Bisnis</span>
+    </div>
+    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
+      Strategi Pemasaran Farmasi
+    </h3>
+    <p class="opacity-80 text-sm sm:text-base text-slate-700 dark:text-slate-300 transition-colors duration-300">
+      Bagaimana industri farmasi mengedukasi tenaga medis dan mendistribusikan obat anti-asma agar tepat sasaran.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 items-start gap-6 max-w-5xl mx-auto px-4">
+    
+    <!-- Card 1: Pendekatan Profesional (B2B) -->
+    <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col group hover:border-indigo-500/50 transition-all duration-300">
+      <div class="flex items-center gap-4 border-b border-black/10 dark:border-white/10 pb-4">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
+          <i class="fa-solid fa-user-doctor"></i>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white">Edukasi Tenaga Medis (B2B)</h4>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-500">Medical Representative</span>
+        </div>
+      </div>
+      
+      <div class="space-y-4 flex-grow text-sm opacity-90 text-slate-700 dark:text-slate-300">
+        <ul class="space-y-3 list-none relative before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-indigo-500/20">
+          <li class="relative pl-6 before:absolute before:left-[4px] before:top-1.5 before:w-2.5 before:h-2.5 before:bg-indigo-500 before:rounded-full"><b>Simposium & Webinar Klinis:</b> Mensponsori acara medis (seperti PDPI) untuk mensosialisasikan <i>guideline</i> terbaru asma (contoh: GINA Guideline).</li>
+          <li class="relative pl-6 before:absolute before:left-[4px] before:top-1.5 before:w-2.5 before:h-2.5 before:bg-indigo-500 before:rounded-full"><b>Detailing Produk:</b> Tim <i>Medical Reps</i> mempresentasikan keunggulan alat inhaler (efisiensi alat) kepada dokter paru dan apoteker.</li>
+        </ul>
+      </div>
+
+      <button onclick="toggleMarketingInfo('b2b')" class="w-full mt-4 py-2.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-xs transition flex justify-center items-center gap-2">
+        <span>Strategi Kunci</span>
+        <i id="icon-mkt-b2b" class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+      </button>
+      <div id="info-mkt-b2b" class="max-h-0 overflow-hidden transition-all duration-300">
+        <p class="pt-3 text-xs opacity-80 leading-relaxed text-slate-700 dark:text-slate-300 text-center">
+          Pemasaran obat etikal (resep) dilarang beriklan langsung ke masyarakat. Target utamanya adalah meyakinkan dokter peresep berdasarkan uji klinis dan <i>Evidence Based Medicine</i>.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2: Kesadaran Pasien (B2C) -->
+    <div class="glass-card rounded-3xl p-6 sm:p-8 space-y-6 flex flex-col group hover:border-indigo-500/50 transition-all duration-300">
+      <div class="flex items-center gap-4 border-b border-black/10 dark:border-white/10 pb-4">
+        <div class="w-14 h-14 rounded-2xl bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 flex items-center justify-center text-2xl shadow-inner flex-shrink-0">
+          <i class="fa-solid fa-users-viewfinder"></i>
+        </div>
+        <div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white">Awareness Pasien (B2C)</h4>
+          <span class="text-xs font-bold uppercase tracking-wider text-indigo-500">Digital & Komunitas</span>
+        </div>
+      </div>
+      
+      <div class="space-y-4 flex-grow text-sm opacity-90 text-slate-700 dark:text-slate-300">
+         <ul class="space-y-3 list-none relative before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-indigo-500/20">
+          <li class="relative pl-6 before:absolute before:left-[4px] before:top-1.5 before:w-2.5 before:h-2.5 before:bg-indigo-500 before:rounded-full"><b>Disease Awareness Campaign:</b> Membuat kampanye digital (Web/Sosmed) tentang pentingnya mengecek status kontrol asma tanpa menyebut merk obat.</li>
+          <li class="relative pl-6 before:absolute before:left-[4px] before:top-1.5 before:w-2.5 before:h-2.5 before:bg-indigo-500 before:rounded-full"><b>Program Dukungan Pasien:</b> Bekerja sama dengan apotek atau aplikasi <i>telemedicine</i> untuk mengingatkan pasien menebus ulang obat pengontrol (ICS) secara rutin.</li>
+        </ul>
+      </div>
+
+      <button onclick="toggleMarketingInfo('b2c')" class="w-full mt-4 py-2.5 rounded-xl bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-600 dark:text-indigo-400 font-bold text-xs transition flex justify-center items-center gap-2">
+        <span>Strategi Kunci</span>
+        <i id="icon-mkt-b2c" class="fa-solid fa-chevron-down transition-transform duration-300"></i>
+      </button>
+      <div id="info-mkt-b2c" class="max-h-0 overflow-hidden transition-all duration-300">
+        <p class="pt-3 text-xs opacity-80 leading-relaxed text-slate-700 dark:text-slate-300 text-center">
+          Berfokus pada <i>Patient Compliance</i> (Kepatuhan Pasien). Pasien yang teredukasi cenderung rajin membeli obat <i>controller</i> untuk menjaga kualitas hidupnya.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <section id="inhaler" class="reveal space-y-8 pt-6 scroll-mt-28">
+
+   <i class="fa-solid fa-syringe absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+          <i class="fa-solid fa-wind"></i>
+          <span>Panduan Klinis Praktis</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Tata Cara Penggunaan Inhaler (MDI)
+        </h3>
+        <p class="opacity-80 text-sm sm:text-base">
+          Ikuti langkah-langkah di bawah untuk memastikan efektivitas obat masuk secara maksimal ke dalam paru-paru.
+        </p>
+      </div>
+
+      <div class="max-w-4xl mx-auto glass-card rounded-3xl p-6 sm:p-10 space-y-8 shadow-2xl">
+        <!-- Tab Steps Nav -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <button onclick="switchInhalerStep(1)" id="inhalerTab1" class="inhaler-tab p-3 rounded-2xl bg-teal-600 text-white font-bold text-xs transition flex flex-col items-center gap-1 shadow-md">
+            <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-xs">1</span>
+            <span>Persiapan</span>
+          </button>
+          <button onclick="switchInhalerStep(2)" id="inhalerTab2" class="inhaler-tab p-3 rounded-2xl bg-black/5 dark:bg-slate-900/60 border border-black/10 dark:border-slate-800 text-xs font-bold transition flex flex-col items-center gap-1">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-500 flex items-center justify-center text-xs">2</span>
+            <span>Kocok & Posisi</span>
+          </button>
+          <button onclick="switchInhalerStep(3)" id="inhalerTab3" class="inhaler-tab p-3 rounded-2xl bg-black/5 dark:bg-slate-900/60 border border-black/10 dark:border-slate-800 text-xs font-bold transition flex flex-col items-center gap-1">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-500 flex items-center justify-center text-xs">3</span>
+            <span>Semprot & Tarik</span>
+          </button>
+          <button onclick="switchInhalerStep(4)" id="inhalerTab4" class="inhaler-tab p-3 rounded-2xl bg-black/5 dark:bg-slate-900/60 border border-black/10 dark:border-slate-800 text-xs font-bold transition flex flex-col items-center gap-1">
+            <span class="w-6 h-6 rounded-full bg-teal-500/20 text-teal-500 flex items-center justify-center text-xs">4</span>
+            <span>Tahan & Bilas</span>
+          </button>
+        </div>
+
+        <!-- Tab Step Content Body -->
+        <div id="inhalerContent" class="space-y-6">
+          <!-- Diisi via JS -->
+        </div>
+
+        <!-- Navigation Buttons for Steps -->
+        <div class="flex items-center justify-between pt-4 border-t border-slate-700/30">
+          <button onclick="prevInhalerStep()" id="prevInhalerBtn" class="px-4 py-2 rounded-xl glass-card text-xs font-semibold hover:border-teal-500 transition flex items-center gap-2">
+            <i class="fa-solid fa-arrow-left"></i> Sebelumnya
+          </button>
+          <span id="inhalerStepIndicator" class="text-xs font-bold text-teal-500">Langkah 1 dari 4</span>
+          <button onclick="nextInhalerStep()" id="nextInhalerBtn" class="px-5 py-2 rounded-xl bg-teal-600 hover:bg-teal-500 text-white text-xs font-bold transition flex items-center gap-2 shadow-lg">
+            Selanjutnya <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+     SECTION: VIDEO EDUKASI
+=========================================== -->
+<section id="video-edukasi" class="reveal space-y-8 pt-12 pb-12 scroll-mt-28">
+
+  <i class="fa-solid fa-wind absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+  <!-- Header Judul -->
+  <div class="text-center max-w-2xl mx-auto space-y-3 px-4">
+    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+      <i class="fa-solid fa-circle-play"></i>
+      <span>Media Interaktif</span>
+    </div>
+    <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white transition-colors duration-300">
+      Video Edukasi Obat Anti-Asma
+    </h3>
+    <p class="opacity-80 text-sm sm:text-base text-slate-700 dark:text-slate-300 transition-colors duration-300">
+      Saksikan panduan visual mengenai cara penanganan asma secara efektif.
+    </p>
+  </div>
+
+  <!-- Pemutar video (diatur di video.js dan video.css) -->
+  <div class="vp">
+    <div class="vp-stage" id="vpStage">
+      <div class="vp-glow" aria-hidden="true"><canvas id="vpAmbient" width="32" height="18"></canvas></div>
+
+      <div class="vp-frame" id="vpFrame" tabindex="0" role="group" aria-label="Pemutar video edukasi. Spasi untuk putar atau jeda, panah untuk maju atau mundur.">
+        <!-- GANTI nama file di bawah dengan videomu (taruh di folder "video") -->
+        <video id="vpVideo" preload="metadata" playsinline poster="video/poster.jpg">
+          <source src="vd/vd-edukasi.mp4" type="video/mp4">
+          Browser Anda tidak mendukung pemutar video.
+        </video>
+
+        <button type="button" class="vp-big" id="vpBig" aria-label="Putar video"><i class="fa-solid fa-play"></i></button>
+        <div class="vp-msg" id="vpMsg" hidden>Video belum tersedia.</div>
+
+        <div class="vp-controls" id="vpControls">
+          <button type="button" id="vpPlay" aria-label="Putar"><i class="fa-solid fa-play"></i></button>
+          <span class="vp-time"><span id="vpCur">0:00</span> / <span id="vpDur">0:00</span></span>
+          <div class="vp-track" id="vpTrack" role="slider" tabindex="0" aria-label="Posisi video" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+            <div class="vp-buf" id="vpBuf"></div><div class="vp-fill" id="vpFill"></div><div class="vp-thumb" id="vpThumb"></div>
+          </div>
+          <button type="button" id="vpMute" aria-label="Bisukan"><i class="fa-solid fa-volume-high"></i></button>
+          <input type="range" class="vp-vol" id="vpVol" min="0" max="1" step="0.05" value="1" aria-label="Volume">
+          <button type="button" id="vpSpeed" aria-label="Kecepatan putar">1&times;</button>
+          <button type="button" id="vpFs" aria-label="Layar penuh"><i class="fa-solid fa-expand"></i></button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+    <div class="wave-divider wave-anim" aria-hidden="true">
+  <svg viewBox="0 0 2880 80" preserveAspectRatio="none">
+    <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 C1680,80 1920,0 2160,40 C2400,80 2640,0 2880,40 L2880,80 L0,80 Z"/>
+  </svg>
+</div>
+
+
+    <section id="kuis" class="reveal space-y-8 pt-6 scroll-mt-28">
+
+   <i class="fa-solid fa-heart-pulse absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+          <i class="fa-solid fa-clipboard-question"></i>
+          <span>Evaluasi Mandiri</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Kuis Pemahaman Farmakoterapi
+        </h3>
+        <p class="opacity-80 text-sm sm:text-base">
+          Uji pemahaman Anda mengenai materi obat asma di bawah ini dengan menjawab 5 pertanyaan pilihan ganda lengkap dengan pembahasan klinis.
+        </p>
+      </div>
+
+      <!-- Diisi oleh kuis.js -->
+      <div class="kz" id="kuisRoot"></div>
+    </section>
+
+   <section id="tim" class="reveal relative space-y-10 pt-6 scroll-mt-28">
+
+      <i class="fa-solid fa-pills absolute -right-6 -top-6 text-[9rem] text-teal-500/5 rotate-12 pointer-events-none"></i>
+
+      <div class="text-center max-w-2xl mx-auto space-y-3">
+        <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-teal-500/10 border border-teal-500/20 text-teal-500 text-xs font-semibold tracking-widest uppercase">
+          <i class="fa-solid fa-users"></i>
+          <span>Tim Penyusun & Kontributor</span>
+        </div>
+        <h3 class="text-3xl sm:text-4xl font-extrabold tracking-tight">
+          Profil Anggota Kelompok
+        </h3>
+        <p class="opacity-80 text-sm sm:text-base">
+          Dibalik pembuatan infografis edukasi farmakoterapi ini, berikut adalah para anggota tim yang berdedikasi.
+        </p>
+
+        <!-- Search Bar Anggota Tim (ring akan berputar ke anggota yang cocok) -->
+        <div class="pt-2 max-w-md mx-auto">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-teal-500"></i>
+            <input type="text" id="teamSearchInput" placeholder="Cari nama anggota tim atau peran..." aria-label="Cari anggota tim" class="w-full pl-11 pr-4 py-3 rounded-2xl glass-card text-xs font-medium focus:outline-none focus:border-teal-500 transition shadow-inner">
+          </div>
+        </div>
+
+        <!-- Tombol Filter Kategori Tim (ring berputar ke anggota kategori tsb, kartu lain diredupkan) -->
+        <div class="flex flex-wrap justify-center gap-2 pt-2">
+          <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold bg-teal-600 text-white transition shadow-sm" data-filter="all">Semua</button>
+          <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold glass-card hover:opacity-80 transition" data-filter="farmasi">Farmasi & Riset</button>
+          <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold glass-card hover:opacity-80 transition" data-filter="tech">Developer & UI</button>
+          <button type="button" class="filter-btn px-4 py-2 rounded-xl text-xs font-semibold glass-card hover:opacity-80 transition" data-filter="editor">Editor & Dokumentasi</button>
+        </div>
+      </div>
+
+      <!-- Ring 3D anggota tim: kartu dibuat otomatis oleh team-ring.js (data ada di file tersebut) -->
+      <div class="tr-stage" id="trStage" role="region" aria-roledescription="carousel" aria-label="Anggota tim penyusun">
+        <div class="tr-scene" id="trScene">
+          <div class="tr-floor" aria-hidden="true"></div>
+          <div class="tr-tilt">
+            <div class="tr-ring" id="trRing"></div>
+          </div>
+        </div>
+
+        <p class="tr-empty" id="trEmpty" hidden>Tidak ada anggota yang cocok dengan pencarian atau filter ini.</p>
+
+        <div class="tr-controls">
+          <button type="button" class="tr-arrow" id="trPrev" aria-label="Anggota sebelumnya"><i class="fa-solid fa-chevron-left"></i></button>
+          <div class="tr-dots" id="trDots"></div>
+          <button type="button" class="tr-arrow" id="trNext" aria-label="Anggota berikutnya"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <p class="tr-hint">Klik atau ketuk kartu di tengah untuk melihat detail &bull; geser atau tekan &larr; &rarr; untuk memutar</p>
+        <p class="sr-only" id="trLive" aria-live="polite"></p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL POPUP DETAIL KLASIFIKASI OBAT -->
+
+  <div id="drugModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-md hidden opacity-0 transition-opacity duration-300">
+    <div id="drugModalCard" class="glass-card max-w-xl w-full rounded-3xl p-6 sm:p-8 space-y-6 shadow-2xl relative transform scale-95 transition-transform duration-300">
+      <button onclick="closeDrugModal()" class="absolute top-6 right-6 w-10 h-10 rounded-2xl bg-slate-200 dark:bg-slate-900 hover:opacity-80 transition flex items-center justify-center text-slate-700 dark:text-slate-300">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="flex items-center space-x-4">
+        <div id="modalIconContainer" class="w-14 h-14 rounded-2xl bg-teal-500/20 text-teal-500 flex items-center justify-center text-2xl flex-shrink-0">
+          <i id="modalIcon" class="fa-solid fa-pills"></i>
+        </div>
+        <div>
+          <span id="modalCategoryBadge" class="text-xs font-semibold uppercase tracking-wider text-teal-500 block mb-1">Golongan Obat</span>
+          <h3 id="modalTitle" class="text-2xl font-black">Judul Obat</h3>
+        </div>
+      </div>
+
+      <div class="space-y-4 text-sm leading-relaxed opacity-90 max-h-[60vh] overflow-y-auto pr-2">
+        <div>
+          <h4 class="font-bold text-teal-500 mb-1 flex items-center gap-2"><i class="fa-solid fa-circle-info"></i> Deskripsi Farmakologi</h4>
+          <p id="modalDesc">Deskripsi lengkap mengenai obat...</p>
+        </div>
+        <div>
+          <h4 class="font-bold text-teal-500 mb-1 flex items-center gap-2"><i class="fa-solid fa-syringe"></i> Mekanisme Kerja & Efek</h4>
+          <p id="modalMech">Mekanisme kerja obat di saluran napas...</p>
+        </div>
+        <div class="bg-black/10 dark:bg-slate-900/60 p-4 rounded-2xl border border-black/5 dark:border-slate-800">
+          <h4 class="font-bold text-xs uppercase tracking-wider text-cyan-500 mb-2">Contoh Sediaan & Dosis Umum:</h4>
+          <p id="modalExamples" class="text-xs opacity-90">Contoh obat...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tombol Kembali ke Atas (Back to Top) -->
+
+  <button onclick="scrollToTop()" id="backToTopBtn" class="fixed bottom-6 right-6 z-50 p-3.5 rounded-2xl bg-teal-600 hover:bg-teal-500 text-white shadow-xl backdrop-blur-md border border-teal-400/30 transition-all duration-300 hidden opacity-0 translate-y-4" title="Kembali ke Atas">
+    <i class="fa-solid fa-arrow-up text-sm"></i>
+  </button>
+
+  <!-- ==========================================
+     SECTION: FOOTER SEKOLAH & WEBSITE
+=========================================== -->
+<footer class="relative mt-20 border-t border-black/10 dark:border-white/10 bg-slate-100/50 dark:bg-slate-900/50 backdrop-blur-xl transition-colors duration-300">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+    
+    <!-- Wadah Utama Footer (Menyambung dengan Flexbox) -->
+    <div class="glass-card rounded-3xl mb-12 flex flex-col lg:flex-row overflow-hidden border border-black/10 dark:border-white/10">
+      
+      <!-- KIRI: Visi SMK Al-Sya'iriyah Limpung -->
+      <!-- Menggunakan lg:border-r untuk garis pembatas vertikal di desktop, dan border-b untuk garis horizontal di mobile -->
+      <div class="w-full lg:w-1/2 p-6 sm:p-8 space-y-6 flex flex-col justify-between border-b lg:border-b-0 lg:border-r border-black/10 dark:border-white/10 hover:bg-teal-500/5 transition-colors duration-300">
+        <div class="space-y-4">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-2xl bg-teal-500/10 text-teal-500 flex items-center justify-center text-xl font-bold shadow-inner flex-shrink-0">
+              <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">
+                SMK Al-Sya'iriyah Limpung
+              </h4>
+              <span class="text-xs font-bold uppercase tracking-wider text-teal-500">Farmasi & PPLG</span>
+            </div>
+          </div>
+          
+          <div class="space-y-3 pt-2">
+            <h5 class="text-xs font-bold uppercase tracking-wider text-slate-800 dark:text-slate-200 flex items-center gap-2">
+              <i class="fa-solid fa-bullseye text-teal-500"></i> Visi Kejuruan
+            </h5>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed opacity-90">
+              <b>Bidang Farmasi:</b> Menghasilkan tenaga teknis kefarmasian yang profesional, berakhlak mulia, serta unggul dalam pelayanan farmasi klinik dan komunitas.<br><br>
+              <b>Bidang PPLG (Pengembangan Perangkat Lunak dan Gim):</b> Mencetak talenta digital yang inovatif, adaptif terhadap teknologi kesehatan modern, serta terampil dalam rekayasa perangkat lunak.
+            </p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-black/10 dark:border-white/10 mt-auto">
+          <p class="text-[11px] text-slate-500 dark:text-slate-400 italic">
+            "Integrasi ilmu kesehatan farmasi dan teknologi informasi untuk mewujudkan kualitas hidup masyarakat yang lebih baik."
+          </p>
+        </div>
+      </div>
+
+      <!-- KANAN: Alamat, Google Maps, Kontak, & Medsos -->
+      <div class="w-full lg:w-1/2 p-6 sm:p-8 space-y-6 flex flex-col justify-between hover:bg-cyan-500/5 transition-colors duration-300">
+        <div class="space-y-5">
+          <div class="flex items-center space-x-3">
+            <div class="w-12 h-12 rounded-2xl bg-cyan-500/10 text-cyan-500 flex items-center justify-center text-xl font-bold shadow-inner flex-shrink-0">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <div>
+              <h4 class="text-lg font-extrabold text-slate-900 dark:text-white tracking-tight">
+                Kontak & Lokasi
+              </h4>
+              <span class="text-xs font-bold uppercase tracking-wider text-cyan-500">Pusat Informasi</span>
+            </div>
+          </div>
+
+          <!-- Alamat & Maps Link -->
+          <div class="space-y-2 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
+            <p class="leading-relaxed">
+              <i class="fa-solid fa-map-pin text-cyan-500 mr-2"></i> 
+              Jl. Raya Limpung - Banyuputih, Sempu, Limpung, Kab. Batang, Jawa Tengah, Indonesia.
+            </p>
+            <div class="pt-1 w-full">
+              <!-- Sedikit modifikasi pada iframe w-full agar responsif menyesuaikan lebar box -->
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3959.888644934249!2d109.9331030749974!3d-7.022373692979305!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e701539884bc80b%3A0x5343dbf0d7358c6b!2sSMK%20Al%20Sya'iriyah%20Limpung!5e0!3m2!1sen!2sid!4v1790565496378!5m2!1sen!2sid" class="w-full rounded-xl" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+          </div>
+
+          <!-- Daftar Kontak & Medsos -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+            <a href="tel:+62285xxxxxx" class="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-200/40 dark:bg-slate-800/50 hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 transition text-xs">
+              <i class="fa-solid fa-phone text-cyan-500 text-sm"></i>
+              <span>(0285) 66822282</span>
+            </a>
+            <a href="mailto:admin@smkalsyairiyahlimpung.sch.id" class="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-200/40 dark:bg-slate-800/50 hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 transition text-xs">
+              <i class="fa-solid fa-envelope text-cyan-500 text-sm"></i>
+              <span class="truncate">admin@smkalsyairiyahlimpung.sch.id</span>
+            </a>
+            <a href="https://www.instagram.com/smkalsyairiyahlimpung?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" target="_blank" class="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-200/40 dark:bg-slate-800/50 hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 transition text-xs">
+              <i class="fa-brands fa-instagram text-cyan-500 text-sm"></i>
+              <span>@smkalsyairiyahlimpung</span>
+            </a>
+            <a href="https://share.google/dY2xYr1UQUL0HHPSp" target="_blank" class="flex items-center gap-3 p-2.5 rounded-2xl bg-slate-200/40 dark:bg-slate-800/50 hover:bg-cyan-500/10 text-slate-700 dark:text-slate-300 transition text-xs">
+              <i class="fa-solid fa-globe text-cyan-500 text-sm"></i>
+              <span>smk al syairiyah limpung</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-black/10 dark:border-white/10 mt-auto">
+          <p class="text-[11px] text-slate-500 dark:text-slate-400">
+            Jam Operasional: Senin - Sabtu, 07.00 - 15.00 WIB.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Copyright (Rata Tengah / Center) -->
+    <div class="pt-8 border-t border-black/10 dark:border-white/10 text-center text-xs text-slate-500 dark:text-slate-400 space-y-2">
+      <p>&copy; <span id="currentYear">2026</span> SMK Al-Sya'iriyah Limpung. Seluruh Hak Cipta Dilindungi.</p>
+      <p class="text-[11px] opacity-80">Website Edukasi Farmakoterapi Obat Anti Asma &mdash; Kolaborasi Jurusan Farmasi & PPLG.</p>
+    </div>
+
+  </div>
+</footer>
+
+<canvas id="cursorCanvas" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; pointer-events: none; z-index: 9999;"></canvas>
+
+<script src="cursor.js"></script>
+
+</body>
+</html>
